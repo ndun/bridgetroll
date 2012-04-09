@@ -37,7 +37,7 @@ describe EventsController do
     context "without logging in, I am redirected from the page" do
       it "redirects to the events page" do
         get :volunteer, {:id => @event.id}
-        response.should redirect_to("/events")
+        response.should redirect_to(new_user_session_path)
       end
 
       it "does not create any new rsvps" do

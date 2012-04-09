@@ -1,6 +1,8 @@
 class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
+  before_filter :authenticate_user!, :except => [:show, :index]
+  
   def index
     @locations = Location.all
 
